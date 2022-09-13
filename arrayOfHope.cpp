@@ -13,7 +13,7 @@ vector<int> createVector(int n, int k){
     vector<int> v(n, 1);
     int pos = 0;
     int num = 2;
-
+    
     while(sumVector(v) % k != 0){
         if(pos < n){
             if(v[pos] == num){
@@ -26,7 +26,6 @@ vector<int> createVector(int n, int k){
             num++;
         }
     }
-
     return v;
 }
 
@@ -34,6 +33,7 @@ void printVector(vector<int> v){
     for(int i = 0; i < v.size(); i++){
         cout << v[i] << endl;
     }
+    // cout << endl;
 }
 
 int main(){
@@ -41,7 +41,7 @@ int main(){
     int cases = 0;
     cin >> cases;
 
-    vector<int> output(cases);
+    vector<int> output(cases, 0);
 
     for(int i = 0; i < cases; i++){
         // n = length of array
@@ -51,6 +51,7 @@ int main(){
         int k = 0;
         cin >> k;
         vector<int> arr = createVector(n, k);
+        // printVector(arr);
         output[i] = arr.front();
     }
 
