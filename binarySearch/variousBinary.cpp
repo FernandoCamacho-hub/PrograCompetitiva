@@ -27,28 +27,23 @@ using namespace std;
 //     return 0;
 // }
 
-void binaryStride(int num, vector<int> a){
-    int sz = a.size();
+void binarySearch(int num, vector<int> v){
+    int l = 0, 
+        r = v.size() - 1, 
+        mid = 0;
     
-    int pow = log2(sz);
-    int pos = 0;
-    int paso = 0;
+    while(l + 1 < r){
+        mid = (l + r) / 2;
 
-    for(int i = pow; i >= 0; i--){
-        paso = 1 << i; //pow^i
-        if(pos + paso <= sz){ // el paso es menor al largo del arreglo
-            if(num > a[paso + pos - 1]){
-                pos += paso;
-            }
+        if(num > v[mid]){
+            r = mid;
         }
+        else{
+            l = mid + 1;
+        }
+        
     }
 
-    if(a[pos] == num){
-        cout << 1 << endl;
-    }
-    else{
-        cout << 0 << endl;
-    }
 }
 
 int main(){
